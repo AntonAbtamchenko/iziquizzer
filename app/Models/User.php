@@ -46,4 +46,24 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * User created quizzes relation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function quizzes()
+    {
+        return $this->hasMany(Quiz::class);
+    }
+
+    /**
+     * User take quizzes relation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function takenQuizzes()
+    {
+        return $this->hasMany(TakenQuiz::class);
+    }
 }

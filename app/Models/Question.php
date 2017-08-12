@@ -23,5 +23,23 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Question extends Model
 {
-    //
+    /**
+     * Question quiz relation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function quiz()
+    {
+        return $this->belongsTo(Quiz::class);
+    }
+
+    /**
+     * Question answers relation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function questions()
+    {
+        return $this->hasMany(Answer::class);
+    }
 }

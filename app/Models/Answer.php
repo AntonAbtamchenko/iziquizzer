@@ -25,5 +25,13 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Answer extends Model
 {
-    //
+    /**
+     * Answer question relation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function question()
+    {
+        return $this->belongsTo(Question::class);
+    }
 }
