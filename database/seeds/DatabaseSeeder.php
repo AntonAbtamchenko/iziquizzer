@@ -2,6 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
+/**
+ * Class DatabaseSeeder
+ */
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -15,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(QuizzesTableSeeder::class);
         $this->call(QuestionsTableSeeder::class);
         $this->call(AnswersTableSeeder::class);
+        $this->call(SetAnswersTableSeeder::class);
     }
 }

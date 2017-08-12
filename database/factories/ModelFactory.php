@@ -67,27 +67,16 @@ $factory->define(App\Models\Question::class, function (Faker\Generator $faker) {
 $factory->define(App\Models\Answer::class, function (Faker\Generator $faker) {
     static $questions;
 
-    $isCorrect = false;
-
     if (is_null($questions)) {
         $questions = DB::table('questions')->pluck('id');
     }
 
     $questionId = $questions->shuffle()->first();
 
-    $question = \App\Models\Question::find($questionId)
-        ->answers()
-        ->where('is_correct', true)
-        ->get();
-
-    if (empty($question)) {
-        $isCorrect = true;
-    }
-
     return [
         'label' => collect(['A', 'B', 'C', 'D', 'O', 'F'])->shuffle()->first(),
         'body' => $faker->text(50),
-        'question_id' => $questions->shuffle()->first(),
-        'is_correct' => $isCorrect
+        'question_id' => $questionId,
+        'is_correct' => false
     ];
 });

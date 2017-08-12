@@ -2,6 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
+/**
+ * Class QuestionsTableSeeder
+ */
 class QuestionsTableSeeder extends Seeder
 {
     /**
