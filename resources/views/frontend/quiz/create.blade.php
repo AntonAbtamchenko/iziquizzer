@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">@include('frontend.home.actions')</div>
                     <div class="panel-body">
-                        @include('frontend.home.list')
+                        @include('frontend.quiz.form')
                     </div>
                 </div>
             </div>

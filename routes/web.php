@@ -19,6 +19,17 @@ Route::group(
         'middleware' => 'auth',
     ],
     function () {
-        Route::get('/', 'Home@index')->name('home');
+        Route::get('/', 'HomeController@index')->name('home');
+
+        Route::group(
+            [
+                'prefix' => 'quiz',
+                'as' => 'quiz.',
+            ],
+            function () {
+                Route::get('/create', 'QuizController@create')->name('create');
+                Route::post('/store', 'QuizController@store')->name('store');
+            }
+        );
     }
 );

@@ -38,9 +38,9 @@ $factory->define(App\Models\Quiz::class, function (Faker\Generator $faker) {
     }
 
     return [
-        'title' => $faker->title,
+        'title' => $faker->sentence(),
         'user_id' => $users->shuffle()->first(),
-        'excerpt' => $faker->text(),
+        'excerpt' => $faker->text(100),
     ];
 });
 
