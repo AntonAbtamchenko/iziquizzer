@@ -31,9 +31,22 @@ class CreateRequest extends FormRequest
     {
         return [
             'Quiz.title' => 'required|string|max:200',
-            'Quiz.excerpt' => 'string|max:250',
+            'Quiz.excerpt' => 'string||max:250|nullable',
             'questionsCount' => 'required|integer|between:1,30',
             'answersCount' => 'required|integer|between:2,5'
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'Quiz.title.required' => 'The title is required',
+            'Quiz.excerpt.string'  => 'The description must be a string',
         ];
     }
 }
