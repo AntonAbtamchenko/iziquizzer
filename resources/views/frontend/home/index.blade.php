@@ -6,8 +6,9 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">@include('frontend.home.actions')</div>
-
-                    @include('frontend.home.list', [''])
+                    <div class="panel-body">
+                        @include('frontend.home.list')
+                    </div>
                 </div>
             </div>
         </div>
