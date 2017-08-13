@@ -60,6 +60,11 @@
                             </div>
                         </div>
                     </form>
+                    <div class="alert alert-info text-center">
+                        <div>
+                            <strong>Email</strong>: demo@demo.com <strong>Password:</strong> demo
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
