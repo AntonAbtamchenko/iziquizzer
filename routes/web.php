@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+Route::group(
+    [
+        'namespace' => 'Frontend',
+        'middleware' => 'auth',
+    ],
+    function () {
+        Route::get('/', 'Home@index')->name('home');
+    }
+);
