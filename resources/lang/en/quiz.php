@@ -5,8 +5,8 @@ return [
         'page_headline' => 'Create Quiz',
         'inputs' => [
             'title' => 'Title',
-            'questionsCount' => 'Questions Count',
-            'answersCount' => 'Answers Count',
+            'questionsCount' => 'Questions count',
+            'answersCount' => 'Answers per question count',
             'excerpt' => 'Description',
             'submit' => 'Save and Continue'
         ]

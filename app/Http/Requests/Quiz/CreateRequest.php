@@ -32,8 +32,8 @@ class CreateRequest extends FormRequest
         return [
             'Quiz.title' => 'required|string|max:200',
             'Quiz.excerpt' => 'string||max:250|nullable',
-            'questionsCount' => 'required|integer|between:1,30',
-            'answersCount' => 'required|integer|between:2,5'
+            'questionsCount' => 'required|integer|between:1,' . config('quiz.questions.max'),
+            'answersCount' => 'required|integer|between:2,' . config('quiz.answers.max')
         ];
     }
 
@@ -45,8 +45,8 @@ class CreateRequest extends FormRequest
     public function messages()
     {
         return [
-            'Quiz.title.required' => 'The title is required',
-            'Quiz.excerpt.string'  => 'The description must be a string',
+            'Quiz.title.required' => trans('requests.quiz.create.title.required'),
+            'Quiz.excerpt.string'  => trans('requests.quiz.create.excerpt.string'),
         ];
     }
 }

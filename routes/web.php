@@ -31,5 +31,19 @@ Route::group(
                 Route::post('/store', 'QuizController@store')->name('store');
             }
         );
+
+        Route::group(
+            [
+                'prefix' => 'question',
+                'as' => 'question.',
+            ],
+            function () {
+                Route::get(
+                    '/bulk/create/{quiz}/{questionsCount}/{answersCount}',
+                    'QuestionController@createBulk'
+                )->name('bulk.create');
+                Route::post('/bulk/store/{quiz}', 'QuestionController@storeBulk')->name('bulk.store');
+            }
+        );
     }
 );

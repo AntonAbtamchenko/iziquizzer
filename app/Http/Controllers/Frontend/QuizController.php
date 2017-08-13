@@ -25,7 +25,7 @@ class QuizController extends Controller
     }
 
     /**
-     * Store quiz and render view for questions and answers creation
+     * Store quiz and redirect to view for questions and answers creation
      *
      * @param CreateRequest $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -33,12 +33,18 @@ class QuizController extends Controller
     public function store(CreateRequest $request)
     {
         $quizData = $request->input('Quiz');
-        $quiz = (new Quiz(array_merge($quizData, ['user_id' => auth()->id])))->save();
+        $quiz = new Quiz($quizData);
+        $quiz->setAttribute('user_id', auth()->user()->id);
+        $quiz->save();
 
-        return view('frontend.questions.createList', [
-            'quiz' => $quiz,
-            'questionsCount' => $request->input('questionsCount'),
-            'answersCount' => $request->input('answersCount')
-        ]);
+        return redirect()
+            ->route(
+                'question.bulk.create',
+                [
+                    'quiz' => $quiz->id,
+                    'questionsCount' => $request->input('questionsCount'),
+                    'answersCount' => $request->input('answersCount')
+                ]
+            );
     }
 }
